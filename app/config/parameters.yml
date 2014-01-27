@@ -12,4 +12,4 @@ parameters:
     mailer_password: RVapt3FOA
     locale: fr
     secret: ThisTokenIsNotSoSecretChangeIt
-    app_owner: 'Fabrice Antinoro © 2013'
+    app_owner: 'Fabrice Antinoro © 2014'
