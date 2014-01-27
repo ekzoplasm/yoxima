@@ -1,0 +1,14 @@
+{# src/yoxima/BlogBundle/Resources/views/layout.html.twig #}
+
+{% extends "::layout.html.twig" %}
+
+{% block title %}
+Blog - {{ parent() }}
+{% endblock %}
+
+{% block body %}
+    <h1>Blog</h1>
+    <hr/>
+    {% block yoximablog_body %}
+    {% endblock %}
+{% endblock %}

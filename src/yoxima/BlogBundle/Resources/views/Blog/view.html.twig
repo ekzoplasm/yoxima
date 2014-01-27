@@ -1,0 +1,42 @@
+{# src/yoxima/BlogBundle/Resources/views/Blog/index.html.twig #}
+
+{% extends "yoximaBlogBundle::layout.html.twig" %}
+
+{% block title %}{{ parent() }} - home{% endblock %}
+
+{% block yoximablog_body %}
+{% if article.image is not null %}
+<img src="{{ article.image.url }}" alt="{{ article.image.alt }}" />
+{% endif %}
+<h2>Article {{ article.id }}</h2>
+<i>Par {{ article.author }}, le {{ article.date|date('d/m/Y') }}</i>
+<div class="well">
+    {{ article.content }}
+</div>
+<p>
+<a href="{{ path('yoxima_blog_homepage') }}" class="btn btn-default">
+    <span class="glyphicon glyphicon-backward"></span>
+    Retour à la liste
+</a>
+<a href="{{ path('yoxima_blog_edit',{ 'id':article.id }) }}" class="btn btn-default">
+<span class="glyphicon glyphicon-edit"></span>
+Modifier l'article
+</a>
+        <a href="{{ path('yoxima_blog_del',{ 'id':article.id }) }}" class="btn btn-default">
+        <span class="glyphicon glyphicon-trash"></span>
+        Supprimer l'article
+        </a>       
+</p>
+<h2>Commentaires</h2>
+{% for comment in comments %}
+<p>
+    <i>Par {{ comment.author }} le {{ comment.date|date('d/m/Y') }}</i>
+    <div class="well">
+        {{ comment.content }}
+    </div>
+</p>
+{% endfor %}
+{% if comments|length < 1 %}
+<div class="well">0 commentaires pour le moment</div>
+{% endif %}
+{% endblock %}

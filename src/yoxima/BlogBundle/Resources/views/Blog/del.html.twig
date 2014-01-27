@@ -1,0 +1,23 @@
+{# src/yoxima/BlogBundle/Resources/views/Blog/del.html.twig #}
+
+{% extends "yoximaBlogBundle::layout.html.twig" %}
+
+{% block title %}{{ parent() }} - home{% endblock %}
+
+{% block yoximablog_body %}
+<h2>Supression de l'article {{ article.id }}</h2>
+<div class="alert alert-warning btn-group btn-group-vertical">
+<p>Vous êtes sur le point de supprimer un article. Voulez-vous continuer ?</p>
+<button type="button" class="btn btn-success">Oui</button><button type="button" class="btn btn-danger">Non</button>
+</div>
+<p>
+<a href="{{ path('yoxima_blog_view',{'id':article.id}) }}" class="btn btn-default">
+    <i class="icon-chevron-left"></i>
+    Retour à l'article
+</a>
+<a href="{{ path('yoxima_blog_edit',{ 'id':article.id }) }}" class="btn btn-default">
+<i class="icon-edit"></i>
+Modifier l'article
+</a>  
+</p>
+{% endblock %}

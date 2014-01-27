@@ -1,0 +1,15 @@
+{# src/yoxima/BlogBundle/Resources/views/Blog/add.html.twig #}
+
+{% extends "yoximaBlogBundle::layout.html.twig" %}
+
+{% block title %}{{ parent() }} - home{% endblock %}
+
+{% block yoximablog_body %}
+<h2>Création d'un article</h2>
+<div class="well">
+    <form method="post" {{ form_enctype(form) }}>
+        {{ form_widget(form) }}
+        <input type="submit" class="btn btn-primary" />        
+    </form>
+</div>
+{% endblock %}

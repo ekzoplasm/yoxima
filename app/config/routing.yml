@@ -1,0 +1,3 @@
+yoxima_blog:
+    resource: "@yoximaBlogBundle/Resources/config/routing.yml"
+    prefix:   /blog

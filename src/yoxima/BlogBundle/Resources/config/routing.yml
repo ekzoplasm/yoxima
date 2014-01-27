@@ -1,0 +1,22 @@
+yoxima_blog_homepage:
+    pattern:  /{page}
+    defaults: { _controller: yoximaBlogBundle:Blog:index , page:1, _format:html , lg:fr }
+    requirements: {page:\d*}
+
+yoxima_blog_view:
+    pattern: /article/{id}
+    defaults: { _controller: yoximaBlogBundle:Blog:view , _format:html }
+
+yoxima_blog_add:
+    pattern: /add
+    defaults: { _controller: yoximaBlogBundle:Blog:add }
+
+yoxima_blog_edit:
+    pattern: /edit/{id}
+    defaults: { _controller: yoximaBlogBundle:Blog:edit }
+    requirements: {id:\d+}
+
+yoxima_blog_del:
+    pattern: /del/{id}
+    defaults: { _controller: yoximaBlogBundle:Blog:del }
+    requirements: {id:\d+}

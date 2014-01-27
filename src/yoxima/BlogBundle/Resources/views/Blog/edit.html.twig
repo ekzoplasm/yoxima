@@ -1,0 +1,20 @@
+{# src/yoxima/BlogBundle/Resources/views/Blog/edit.html.twig #}
+
+{% extends "yoximaBlogBundle::layout.html.twig" %}
+
+{% block title %}{{ parent() }} - home{% endblock %}
+
+{% block yoximablog_body %}
+<h2>Modification de l'article {{ article.id }}</h2>
+{% include "yoximaBlogBundle:Blog:formulaire.html.twig" %}
+<p>
+<a href="{{ path('yoxima_blog_view',{'id':article.id}) }}" class="btn">
+    <i class="icon-chevron-left"></i>
+    Retour à l'article
+</a>
+        <a href="{{ path('yoxima_blog_del',{ 'id':article.id }) }}" class="btn">
+        <i class="icon-trash"></i>
+        Supprimer l'article
+        </a>       
+</p>
+{% endblock %}
