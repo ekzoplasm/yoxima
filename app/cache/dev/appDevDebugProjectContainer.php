@@ -2824,7 +2824,7 @@ class appDevDebugProjectContainer extends Container
         $instance->addExtension(new \Symfony\Bundle\AsseticBundle\Twig\AsseticExtension($this->get('assetic.asset_factory'), $this->get('templating.name_parser'), true, array(), array(), $this->get('assetic.value_supplier.default', ContainerInterface::NULL_ON_INVALID_REFERENCE)));
         $instance->addExtension(new \Doctrine\Bundle\DoctrineBundle\Twig\DoctrineExtension());
         $instance->addGlobal('app', $this->get('templating.globals'));
-        $instance->addGlobal('owner', 'fabrice antinoro © 2014');
+        $instance->addGlobal('owner', 'fabrice antinoro © 2013');
 
         return $instance;
     }
@@ -3319,7 +3319,7 @@ class appDevDebugProjectContainer extends Container
             'kernel.root_dir' => 'C:/wamp/www/Symfony/app',
             'kernel.environment' => 'dev',
             'kernel.debug' => true,
-            'kernel.name' => 'ap_',
+            'kernel.name' => 'app',
             'kernel.cache_dir' => 'C:/wamp/www/Symfony/app/cache/dev',
             'kernel.logs_dir' => 'C:/wamp/www/Symfony/app/logs',
             'kernel.bundles' => array(
@@ -3352,7 +3352,7 @@ class appDevDebugProjectContainer extends Container
             'mailer_password' => 'RVapt3FOA',
             'locale' => 'fr',
             'secret' => 'ThisTokenIsNotSoSecretChangeIt',
-            'app_owner' => 'fabrice antinoro © 2014',
+            'app_owner' => 'fabrice antinoro © 2013',
             'controller_resolver.class' => 'Symfony\\Bundle\\FrameworkBundle\\Controller\\ControllerResolver',
             'controller_name_converter.class' => 'Symfony\\Bundle\\FrameworkBundle\\Controller\\ControllerNameParser',
             'response_listener.class' => 'Symfony\\Component\\HttpKernel\\EventListener\\ResponseListener',
@@ -3689,6 +3689,7 @@ class appDevDebugProjectContainer extends Container
             'swiftmailer.mailer.default.transport.smtp.source_ip' => NULL,
             'swiftmailer.spool.default.memory.path' => 'C:/wamp/www/Symfony/app/cache/dev/swiftmailer/spool/default',
             'swiftmailer.mailer.default.spool.enabled' => true,
+            'swiftmailer.mailer.default.plugin.impersonate' => NULL,
             'swiftmailer.mailer.default.single_address' => NULL,
             'swiftmailer.spool.enabled' => true,
             'swiftmailer.delivery.enabled' => true,
@@ -3731,7 +3732,7 @@ class appDevDebugProjectContainer extends Container
             ),
             'assetic.java.bin' => 'C:\\Windows\\System32\\java.EXE',
             'assetic.node.bin' => 'C:\\Program Files\\nodejs\\\\node.EXE',
-            'assetic.ruby.bin' => '/usr/bin/ruby',
+            'assetic.ruby.bin' => 'C:\\Ruby193\\bin\\ruby.EXE',
             'assetic.sass.bin' => '/usr/bin/sass',
             'assetic.filter.cssrewrite.class' => 'Assetic\\Filter\\CssRewriteFilter',
             'assetic.twig_extension.functions' => array(
