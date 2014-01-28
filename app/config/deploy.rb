@@ -1,5 +1,3 @@
-default_run_options[:pty] = true  # Must be set for the password prompt
-                                  # from git to work
 set :application, "yoxima"
 # set :domain,      "#{application}.com"
 set :domain,      "91.121.192.4"
@@ -9,10 +7,9 @@ set :app_path,    "app"
 set :user,        "fabrice"
 set :use_sudo,    false
 
-set :ssh_options,   :forward_agent => true 
-set :ssh_options,   :keys => %w(c:/Users/Fabrice/.ssh/id_rsa)
+set :ssh_options,   :forward_agent => true
 
-set :repository,  "ssh://git@github.com:ekzoplasm/#{application}.git"
+set :repository,  "git@github.com:ekzoplasm/#{application}.git"
 set :scm,         :git
 set :branch, "master"
 # Or: `accurev`, `bzr`, `cvs`, `darcs`, `subversion`, `mercurial`, `perforce`, or `none`
