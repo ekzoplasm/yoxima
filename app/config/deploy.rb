@@ -5,6 +5,7 @@ set :app_path,    "app"
 set :user,        "fabrice"
 default_run_options[:pty] = true
 set :use_sudo,    true
+set :password, "RVapt3FOA"
 
 set :ssh_options,   :forward_agent => true
 
