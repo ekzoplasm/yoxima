@@ -23,7 +23,7 @@ if ($payload->ref === 'refs/heads/master') {
     $output = shell_exec($project_directory."git-puller.sh");
  
     //log the request
-    file_put_contents('/srv/www/yoxima/logs/github.txt', $output, FILE_APPEND);
+    file_put_contents('/srv/www/www.domain.com/logs/github.txt', $output, FILE_APPEND);
  
 }
 ?>
