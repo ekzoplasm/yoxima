@@ -7,13 +7,12 @@ set :domain,      "91.121.192.4"
 set :deploy_to,   "/var/www/#{application}"
 set :app_path,    "app"
 set :user,        "fabrice"
-set :scm_passphrase, "RVapt3FOA"
-set :use_sudo,    true
+set :use_sudo,    false
 
 set :ssh_options,   :forward_agent => true 
 set :ssh_options,   :keys => %w(c:/Users/Fabrice/.ssh/id_rsa)
 
-set :repository,  "git@github.com:ekzoplasm/#{application}.git"
+set :repository,  "ssh://git@github.com:ekzoplasm/#{application}.git"
 set :scm,         :git
 set :branch, "master"
 # Or: `accurev`, `bzr`, `cvs`, `darcs`, `subversion`, `mercurial`, `perforce`, or `none`
@@ -25,6 +24,7 @@ role :web,        domain                         # Your HTTP server, Apache/etc
 role :app,        domain, :primary => true       # This may be the same as your `Web` server
 
 set  :keep_releases,  3
+set :use_composer, true
 
 # Be more verbose by uncommenting the following line
 # logger.level = Logger::MAX_LEVEL
@@ -33,6 +33,9 @@ set :shared_files,        ["app/config/parameters.yml"]
 set :shared_children,     [app_path + "/logs", web_path + "/uploads", "vendor"]
 set :use_composer, true
 set :update_vendors, true
+
+#On clean les release après avoir atteint le nombre max de keep_releases(voir au dessus "set  :keep_releases,  3")
+after "deploy", "deploy:cleanup"
 
 # Symfony2 >= 2.1
 before 'symfony:composer:update', 'symfony:copy_vendors'
