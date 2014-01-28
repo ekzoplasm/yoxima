@@ -33,7 +33,7 @@ set :use_set_permissions, true
 set :shared_files,        ["app/config/parameters.yml"]
 set :shared_children,     [app_path + "/logs", web_path + "/uploads", "vendor"]
 #set :use_composer, true
-set :update_vendors, true
+#set :update_vendors, true
 
 #On clean les release après avoir atteint le nombre max de keep_releases(voir au dessus "set  :keep_releases,  3")
 after "deploy", "deploy:cleanup"
