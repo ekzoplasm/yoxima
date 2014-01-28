@@ -4,13 +4,16 @@ set :deploy_to,   "/var/www/#{application}"
 set :app_path,    "app"
 set :user,        "fabrice"
 default_run_options[:pty] = true
-set :use_sudo,    true
-set :password, "RVapt3FOA"
+set :use_sudo,    false
+#Sudo Password if use_sudo true
+#set :password, "RVapt3FOA"
+set :passphrase, "RVapt3FOA"
 
 set :ssh_options,   :forward_agent => true
 
 set :repository,  "https://github.com/ekzoplasm/#{application}.git"
 set :scm,         :git
+#git password
 set :scm_password, "psy5mdna7"
 set :scm_passphrase, "RVapt3FOA"
 set :branch, "master"
@@ -29,7 +32,7 @@ set :use_set_permissions, true
 
 set :shared_files,        ["app/config/parameters.yml"]
 set :shared_children,     [app_path + "/logs", web_path + "/uploads", "vendor"]
-set :use_composer, true
+#set :use_composer, true
 set :update_vendors, true
 
 #On clean les release après avoir atteint le nombre max de keep_releases(voir au dessus "set  :keep_releases,  3")
