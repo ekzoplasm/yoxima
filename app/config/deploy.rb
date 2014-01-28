@@ -3,6 +3,7 @@ set :domain,      "91.121.192.4"
 set :deploy_to,   "/var/www/#{application}"
 set :app_path,    "app"
 set :user,        "fabrice"
+default_run_options[:pty] = true
 set :use_sudo,    true
 
 set :ssh_options,   :forward_agent => true
