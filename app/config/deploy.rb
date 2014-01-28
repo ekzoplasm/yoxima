@@ -5,7 +5,7 @@ set :domain,      "91.121.192.4"
 set :deploy_to,   "/var/www/#{application}"
 set :app_path,    "app"
 set :user,        "fabrice"
-set :use_sudo,    false
+set :use_sudo,    true
 
 set :ssh_options,   :forward_agent => true 
 set :ssh_options,   :keys => %w(c:/Users/fabrice/.ssh/id_rsa)
