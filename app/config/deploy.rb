@@ -1,3 +1,18 @@
+unless ENV['_DEBUG'].nil?
+    puts "Ruby Version                      => #{RUBY_VERSION}-p#{RUBY_PATCHLEVEL}"
+    puts "OpenSSL::Version                  => #{OpenSSL::OPENSSL_VERSION}"
+    puts "Net::SSH::Version::CURRENT        => #{Net::SSH::Version::CURRENT}"
+    puts "Net::SSH -> Local platform        => #{Net::SSH::Authentication::PLATFORM}"
+    puts "Remote Whoami                     => #{capture 'whoami'}"
+    puts "umask on Server                   => #{capture 'umask'}"
+    puts "$SHELL                            => #{capture 'echo $SHELL'}"
+    puts "$BASH_VERSION                     => #{capture 'echo $BASH_VERSION'}"
+    puts "Interactive Shell - Test: $PS1    => #{capture 'if [ -z "$PS1" ]; then echo no; else echo yes; fi'}"
+
+    logger.level =          Logger::MAX_LEVEL
+    ssh_options[:verbose] = :debug 
+end
+
 set :application, "yoxima"
 set :domain,      "91.121.192.4"
 set :deploy_to,   "/var/www/#{application}"
@@ -26,9 +41,9 @@ role :app,        domain, :primary => true       # This may be the same as your 
 set  :keep_releases,  3
 
 # Be more verbose by uncommenting the following line
-# logger.level = Logger::MAX_LEVEL
+logger.level = Logger::MAX_LEVEL
 
-set :use_set_permissions, true
+#set :use_set_permissions, true
 
 set :shared_files,        ["app/config/parameters.yml"]
 set :shared_children,     [app_path + "/logs", web_path + "/uploads", "vendor"]
@@ -36,7 +51,7 @@ set :shared_children,     [app_path + "/logs", web_path + "/uploads", "vendor"]
 #set :update_vendors, true
 
 #On clean les release après avoir atteint le nombre max de keep_releases(voir au dessus "set  :keep_releases,  3")
-after "deploy", "deploy:cleanup"
+#after "deploy", "deploy:cleanup"
 
 # Symfony2 >= 2.1
 #before 'symfony:composer:update', 'symfony:copy_vendors'
@@ -53,17 +68,3 @@ after "deploy", "deploy:cleanup"
 #  end
 #end
 
-unless ENV['_DEBUG'].nil?
-    puts "Ruby Version                      => #{RUBY_VERSION}-p#{RUBY_PATCHLEVEL}"
-    puts "OpenSSL::Version                  => #{OpenSSL::OPENSSL_VERSION}"
-    puts "Net::SSH::Version::CURRENT        => #{Net::SSH::Version::CURRENT}"
-    puts "Net::SSH -> Local platform        => #{Net::SSH::Authentication::PLATFORM}"
-    puts "Remote Whoami                     => #{capture 'whoami'}"
-    puts "umask on Server                   => #{capture 'umask'}"
-    puts "$SHELL                            => #{capture 'echo $SHELL'}"
-    puts "$BASH_VERSION                     => #{capture 'echo $BASH_VERSION'}"
-    puts "Interactive Shell - Test: $PS1    => #{capture 'if [ -z "$PS1" ]; then echo no; else echo yes; fi'}"
-
-    logger.level =          Logger::MAX_LEVEL
-    ssh_options[:verbose] = :debug 
-end
