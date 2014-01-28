@@ -29,19 +29,19 @@ set :use_composer, true
 set :update_vendors, true
 
 #On clean les release après avoir atteint le nombre max de keep_releases(voir au dessus "set  :keep_releases,  3")
-after "deploy", "deploy:cleanup"
+#after "deploy", "deploy:cleanup"
 
 # Symfony2 >= 2.1
-before 'symfony:composer:update', 'symfony:copy_vendors'
+#before 'symfony:composer:update', 'symfony:copy_vendors'
 
-namespace :symfony do
-  desc "Copy vendors from previous release"
-  task :copy_vendors, :except => { :no_release => true } do
-    if Capistrano::CLI.ui.agree("Do you want to copy last release vendor dir then do composer install ?: (y/N)")
-      capifony_pretty_print "--> Copying vendors from previous release"
+#namespace :symfony do
+#  desc "Copy vendors from previous release"
+#  task :copy_vendors, :except => { :no_release => true } do
+#    if Capistrano::CLI.ui.agree("Do you want to copy last release vendor dir then do composer install ?: (y/N)")
+#      capifony_pretty_print "--> Copying vendors from previous release"
 
-      run "cp -a #{previous_release}/vendor #{latest_release}/"
-      capifony_puts_ok
-    end
-  end
-end
+#      run "cp -a #{previous_release}/vendor #{latest_release}/"
+#      capifony_puts_ok
+#    end
+#  end
+#end
