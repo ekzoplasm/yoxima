@@ -3319,7 +3319,7 @@ class appDevDebugProjectContainer extends Container
             'kernel.root_dir' => 'C:/wamp/www/Symfony/app',
             'kernel.environment' => 'dev',
             'kernel.debug' => true,
-            'kernel.name' => 'app',
+            'kernel.name' => 'ap_',
             'kernel.cache_dir' => 'C:/wamp/www/Symfony/app/cache/dev',
             'kernel.logs_dir' => 'C:/wamp/www/Symfony/app/logs',
             'kernel.bundles' => array(
@@ -3732,7 +3732,7 @@ class appDevDebugProjectContainer extends Container
             ),
             'assetic.java.bin' => 'C:\\Windows\\System32\\java.EXE',
             'assetic.node.bin' => 'C:\\Program Files\\nodejs\\\\node.EXE',
-            'assetic.ruby.bin' => 'C:\\Ruby193\\bin\\ruby.EXE',
+            'assetic.ruby.bin' => '/usr/bin/ruby',
             'assetic.sass.bin' => '/usr/bin/sass',
             'assetic.filter.cssrewrite.class' => 'Assetic\\Filter\\CssRewriteFilter',
             'assetic.twig_extension.functions' => array(
