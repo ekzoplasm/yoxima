@@ -7,7 +7,7 @@ set :use_sudo,    false
 
 set :ssh_options,   :forward_agent => true
 
-set :repository,  "git@github.com:ekzoplasm/#{application}.git"
+set :repository,  "https://github.com/ekzoplasm/#{application}.git"
 set :scm,         :git
 set :scm_password, "psy5mdna7"
 set :scm_passphrase, "RVapt3FOA"
