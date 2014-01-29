@@ -32,8 +32,8 @@ logger.level = Logger::MAX_LEVEL
 
 set :shared_files,    [app_path + "/config/parameters.yml"]
 set :shared_children,     [app_path + "/logs", web_path + "/uploads"]
+set :update_vendors, true
 set :use_composer, true
-#set :update_vendors, true
 
 namespace :symfony do
   namespace :configure do
