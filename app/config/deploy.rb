@@ -67,7 +67,7 @@ namespace :symfony do
         run "mkdir -p #{shared_path}/#{app_path}/config"
         run "cp #{app_parameters_path} #{shared_parameters_path}"
         shared_parameters_config['parameters'].sort.map do |key, value|
-          prompt_with_default(:"#{key}", app_config_parameters.fetch(:"#{key}", value))
+          prompt_with_default(:"#{key}", app_parameters_config.fetch(:"#{key}", value))
           shared_parameters_config['parameters'][key] = eval key;
         end
         conf_file_changed = true
