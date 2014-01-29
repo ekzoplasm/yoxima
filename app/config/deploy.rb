@@ -1,28 +1,12 @@
-unless ENV['_DEBUG'].nil?
-    puts "Ruby Version                      => #{RUBY_VERSION}-p#{RUBY_PATCHLEVEL}"
-    puts "OpenSSL::Version                  => #{OpenSSL::OPENSSL_VERSION}"
-    puts "Net::SSH::Version::CURRENT        => #{Net::SSH::Version::CURRENT}"
-    puts "Net::SSH -> Local platform        => #{Net::SSH::Authentication::PLATFORM}"
-    puts "Remote Whoami                     => #{capture 'whoami'}"
-    puts "umask on Server                   => #{capture 'umask'}"
-    puts "$SHELL                            => #{capture 'echo $SHELL'}"
-    puts "$BASH_VERSION                     => #{capture 'echo $BASH_VERSION'}"
-    puts "Interactive Shell - Test: $PS1    => #{capture 'if [ -z "$PS1" ]; then echo no; else echo yes; fi'}"
-
-    logger.level =          Logger::MAX_LEVEL
-    ssh_options[:verbose] = :debug 
-end
-
 set :application, "yoxima"
 set :domain,      "91.121.192.4"
 set :deploy_to,   "/var/www/#{application}"
 set :app_path,    "app"
 set :user,        "fabrice"
-default_run_options[:pty] = true
+#default_run_options[:pty] = true
 set :use_sudo,    false
 #Sudo Password if use_sudo true
 #set :password, "RVapt3FOA"
-set :passphrase, "RVapt3FOA"
 
 set :ssh_options,   :forward_agent => true
 
@@ -45,26 +29,66 @@ logger.level = Logger::MAX_LEVEL
 
 #set :use_set_permissions, true
 
-set :shared_files,        ["app/config/parameters.yml"]
+
+set :shared_files,    [app_path + "/config/parameters.yml"]
 set :shared_children,     [app_path + "/logs", web_path + "/uploads"]
 set :use_composer, true
 #set :update_vendors, true
 
-#On clean les release après avoir atteint le nombre max de keep_releases(voir au dessus "set  :keep_releases,  3")
-#after "deploy", "deploy:cleanup"
-
-# Symfony2 >= 2.1
-#before 'symfony:composer:update', 'symfony:copy_vendors'
-
-#namespace :symfony do
-#  desc "Copy vendors from previous release"
-#  task :copy_vendors, :except => { :no_release => true } do
-#    if Capistrano::CLI.ui.agree("Do you want to copy last release vendor dir then do composer install ?: (y/N)")
-#      capifony_pretty_print "--> Copying vendors from previous release"
-
-#      run "cp -a #{previous_release}/vendor #{latest_release}/"
-#      capifony_puts_ok
-#    end
-#  end
-#end
+namespace :symfony do
+  namespace :configure do
+    def shared_parameters_path
+      "#{shared_path}/#{app_path}/config/parameters.yml"
+    end
+ 
+    def app_parameters_path
+      "#{latest_release}/#{app_path}/config/parameters.yml"
+    end
+ 
+    def shared_parameters_config
+      @shared_parameters_config ||= fetch_yaml "#{shared_parameters_path}"
+    end
+ 
+    def app_parameters_config
+      @app_parameters_config ||= fetch_yaml "#{app_parameters_path}"
+    end
+ 
+    def fetch_yaml (yaml_path)
+      require 'yaml'
+      file = capture("cat #{yaml_path}")
+      YAML::load(file)
+    end
+ 
+    task :parameters do
+      conf_files_exists = capture("if test -s #{shared_parameters_path} ; then echo 'exists' ; fi").strip
+      conf_file_changed = false
+ 
+      if !conf_files_exists.eql?("exists")
+        run "mkdir -p #{shared_path}/#{app_path}/config"
+        run "cp #{app_parameters_path} #{shared_parameters_path}"
+        shared_parameters_config['parameters'].sort.map do |key, value|
+          prompt_with_default(:"#{key}", app_config_parameters.fetch(:"#{key}", value))
+          shared_parameters_config['parameters'][key] = eval key;
+        end
+        conf_file_changed = true
+      end
+ 
+      app_parameters_config['parameters'].sort.map do |key, value|
+        if !shared_parameters_config['parameters'].has_key?(key)
+          prompt_with_default(:"#{key}", app_config_parameters.fetch(:"#{key}", value))
+          shared_parameters_config['parameters'][key] = eval key;
+          conf_file_changed = true
+        end
+      end
+ 
+      if conf_file_changed
+        put shared_parameters_config.to_yaml, "#{shared_parameters_path}"
+      end
+    end
+  end
+end
+ 
+before "deploy:finalize_update" do
+  symfony.configure.parameters
+end
 
