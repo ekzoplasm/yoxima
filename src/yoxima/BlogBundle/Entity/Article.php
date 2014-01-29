@@ -3,7 +3,7 @@
 namespace yoxima\BlogBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-use Gedmo\mapping\annotation as Gedmo;
+use Gedmo\Mapping\Annotation\Slug as Gedmo;
 /**
  * Article
  *
