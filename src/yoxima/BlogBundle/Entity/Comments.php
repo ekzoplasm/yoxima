@@ -156,7 +156,7 @@ class Comments
     }
     
     /**
-     * @ORM\prePersist
+     * @ORM\PrePersist
      */
     function increaseNbComments(){
         $nb = $this->getArticle()->getNbComments();
@@ -164,7 +164,7 @@ class Comments
     }
     
     /**
-     * @ORM\preRemove
+     * @ORM\PreRemove
      */
     function decreaseNbComments(){
         $nb = $this->getArticle()->getNbComments();
