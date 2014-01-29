@@ -24,7 +24,7 @@ class Comments
 
     /**
      * @ORM\ManyToOne(targetEntity="yoxima\BlogBundle\Entity\Article",inversedBy="comments")
-     * @ORM\joinColumn(nullable=false)
+     * @ORM\JoinColumn(nullable=false)
      */
     private $article;
 
