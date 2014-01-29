@@ -75,7 +75,7 @@ namespace :symfony do
  
       app_parameters_config['parameters'].sort.map do |key, value|
         if !shared_parameters_config['parameters'].has_key?(key)
-          prompt_with_default(:"#{key}", app_config_parameters.fetch(:"#{key}", value))
+          prompt_with_default(:"#{key}", app_parameters_config.fetch(:"#{key}", value))
           shared_parameters_config['parameters'][key] = eval key;
           conf_file_changed = true
         end
