@@ -19,7 +19,7 @@ class __TwigTemplate_fe814fbb8521522d26f92ed6c9d027af6c3c4e594e54019e1d0ba90e479
         echo "<table ";
         if (array_key_exists("class", $context)) {
             echo "class='";
-            echo twig_escape_filter($this->env, (isset($context["class"]) ? $context["class"] : $this->getContext($context, "class")), "html", null, true);
+            echo twig_escape_filter($this->env, (isset($context["class"]) ? $context["class"] : null), "html", null, true);
             echo "'";
         }
         echo " >
@@ -33,18 +33,18 @@ class __TwigTemplate_fe814fbb8521522d26f92ed6c9d027af6c3c4e594e54019e1d0ba90e479
         ";
         // line 9
         $context['_parent'] = (array) $context;
-        $context['_seq'] = twig_ensure_traversable(twig_sort_filter($this->getAttribute((isset($context["bag"]) ? $context["bag"] : $this->getContext($context, "bag")), "keys")));
+        $context['_seq'] = twig_ensure_traversable(twig_sort_filter($this->getAttribute((isset($context["bag"]) ? $context["bag"] : null), "keys")));
         foreach ($context['_seq'] as $context["_key"] => $context["key"]) {
             // line 10
             echo "            <tr>
                 <th>";
             // line 11
-            echo twig_escape_filter($this->env, (isset($context["key"]) ? $context["key"] : $this->getContext($context, "key")), "html", null, true);
+            echo twig_escape_filter($this->env, (isset($context["key"]) ? $context["key"] : null), "html", null, true);
             echo "</th>
                 ";
             // line 13
             echo "                <td>";
-            echo twig_escape_filter($this->env, twig_jsonencode_filter($this->getAttribute((isset($context["bag"]) ? $context["bag"] : $this->getContext($context, "bag")), "get", array(0 => (isset($context["key"]) ? $context["key"] : $this->getContext($context, "key"))), "method"), (64 | 256)), "html", null, true);
+            echo twig_escape_filter($this->env, twig_jsonencode_filter($this->getAttribute((isset($context["bag"]) ? $context["bag"] : null), "get", array(0 => (isset($context["key"]) ? $context["key"] : null)), "method"), (64 | 256)), "html", null, true);
             echo "</td>
             </tr>
         ";

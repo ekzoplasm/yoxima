@@ -32,7 +32,7 @@ class __TwigTemplate_b062a2fb5f0e7a9f843589b93c315c854022d42cb787f877c9a3b47286f
 
     ";
         // line 6
-        if ((isset($context["tokens"]) ? $context["tokens"] : $this->getContext($context, "tokens"))) {
+        if ((isset($context["tokens"]) ? $context["tokens"] : null)) {
             // line 7
             echo "        <table>
             <thead>
@@ -48,31 +48,31 @@ class __TwigTemplate_b062a2fb5f0e7a9f843589b93c315c854022d42cb787f877c9a3b47286f
                 ";
             // line 18
             $context['_parent'] = (array) $context;
-            $context['_seq'] = twig_ensure_traversable((isset($context["tokens"]) ? $context["tokens"] : $this->getContext($context, "tokens")));
+            $context['_seq'] = twig_ensure_traversable((isset($context["tokens"]) ? $context["tokens"] : null));
             foreach ($context['_seq'] as $context["_key"] => $context["elements"]) {
                 // line 19
                 echo "                    <tr>
                         <td><a href=\"";
                 // line 20
-                echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("_profiler", array("token" => $this->getAttribute((isset($context["elements"]) ? $context["elements"] : $this->getContext($context, "elements")), "token"))), "html", null, true);
+                echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("_profiler", array("token" => $this->getAttribute((isset($context["elements"]) ? $context["elements"] : null), "token"))), "html", null, true);
                 echo "\">";
-                echo twig_escape_filter($this->env, $this->getAttribute((isset($context["elements"]) ? $context["elements"] : $this->getContext($context, "elements")), "token"), "html", null, true);
+                echo twig_escape_filter($this->env, $this->getAttribute((isset($context["elements"]) ? $context["elements"] : null), "token"), "html", null, true);
                 echo "</a></td>
                         <td>";
                 // line 21
-                echo twig_escape_filter($this->env, $this->getAttribute((isset($context["elements"]) ? $context["elements"] : $this->getContext($context, "elements")), "ip"), "html", null, true);
+                echo twig_escape_filter($this->env, $this->getAttribute((isset($context["elements"]) ? $context["elements"] : null), "ip"), "html", null, true);
                 echo "</td>
                         <td>";
                 // line 22
-                echo twig_escape_filter($this->env, $this->getAttribute((isset($context["elements"]) ? $context["elements"] : $this->getContext($context, "elements")), "method"), "html", null, true);
+                echo twig_escape_filter($this->env, $this->getAttribute((isset($context["elements"]) ? $context["elements"] : null), "method"), "html", null, true);
                 echo "</td>
                         <td>";
                 // line 23
-                echo twig_escape_filter($this->env, $this->getAttribute((isset($context["elements"]) ? $context["elements"] : $this->getContext($context, "elements")), "url"), "html", null, true);
+                echo twig_escape_filter($this->env, $this->getAttribute((isset($context["elements"]) ? $context["elements"] : null), "url"), "html", null, true);
                 echo "</td>
                         <td>";
                 // line 24
-                echo twig_escape_filter($this->env, twig_date_format_filter($this->env, $this->getAttribute((isset($context["elements"]) ? $context["elements"] : $this->getContext($context, "elements")), "time"), "r"), "html", null, true);
+                echo twig_escape_filter($this->env, twig_date_format_filter($this->env, $this->getAttribute((isset($context["elements"]) ? $context["elements"] : null), "time"), "r"), "html", null, true);
                 echo "</td>
                     </tr>
                 ";

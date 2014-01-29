@@ -37,7 +37,7 @@ class __TwigTemplate_9d4f7a136efb8f550a5a0116aa5b564cc998e7bc076d74345f48555e06a
     {
         // line 8
         echo "<h2>Modification de l'article ";
-        echo twig_escape_filter($this->env, $this->getAttribute((isset($context["article"]) ? $context["article"] : $this->getContext($context, "article")), "id"), "html", null, true);
+        echo twig_escape_filter($this->env, $this->getAttribute((isset($context["article"]) ? $context["article"] : null), "id"), "html", null, true);
         echo "</h2>
 ";
         // line 9
@@ -46,14 +46,14 @@ class __TwigTemplate_9d4f7a136efb8f550a5a0116aa5b564cc998e7bc076d74345f48555e06a
         echo "<p>
 <a href=\"";
         // line 11
-        echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("yoxima_blog_view", array("id" => $this->getAttribute((isset($context["article"]) ? $context["article"] : $this->getContext($context, "article")), "id"))), "html", null, true);
+        echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("yoxima_blog_view", array("id" => $this->getAttribute((isset($context["article"]) ? $context["article"] : null), "id"))), "html", null, true);
         echo "\" class=\"btn\">
     <i class=\"icon-chevron-left\"></i>
     Retour à l'article
 </a>
         <a href=\"";
         // line 15
-        echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("yoxima_blog_del", array("id" => $this->getAttribute((isset($context["article"]) ? $context["article"] : $this->getContext($context, "article")), "id"))), "html", null, true);
+        echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("yoxima_blog_del", array("id" => $this->getAttribute((isset($context["article"]) ? $context["article"] : null), "id"))), "html", null, true);
         echo "\" class=\"btn\">
         <i class=\"icon-trash\"></i>
         Supprimer l'article

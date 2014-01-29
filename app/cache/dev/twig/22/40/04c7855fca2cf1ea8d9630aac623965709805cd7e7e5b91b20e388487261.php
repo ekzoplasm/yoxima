@@ -37,7 +37,7 @@ class __TwigTemplate_224004c7855fca2cf1ea8d9630aac623965709805cd7e7e5b91b20e3884
     {
         // line 8
         echo "<h2>Supression de l'article ";
-        echo twig_escape_filter($this->env, $this->getAttribute((isset($context["article"]) ? $context["article"] : $this->getContext($context, "article")), "id"), "html", null, true);
+        echo twig_escape_filter($this->env, $this->getAttribute((isset($context["article"]) ? $context["article"] : null), "id"), "html", null, true);
         echo "</h2>
 <div class=\"alert alert-warning btn-group btn-group-vertical\">
 <p>Vous êtes sur le point de supprimer un article. Voulez-vous continuer ?</p>
@@ -46,14 +46,14 @@ class __TwigTemplate_224004c7855fca2cf1ea8d9630aac623965709805cd7e7e5b91b20e3884
 <p>
 <a href=\"";
         // line 14
-        echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("yoxima_blog_view", array("id" => $this->getAttribute((isset($context["article"]) ? $context["article"] : $this->getContext($context, "article")), "id"))), "html", null, true);
+        echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("yoxima_blog_view", array("id" => $this->getAttribute((isset($context["article"]) ? $context["article"] : null), "id"))), "html", null, true);
         echo "\" class=\"btn btn-default\">
     <i class=\"icon-chevron-left\"></i>
     Retour à l'article
 </a>
 <a href=\"";
         // line 18
-        echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("yoxima_blog_edit", array("id" => $this->getAttribute((isset($context["article"]) ? $context["article"] : $this->getContext($context, "article")), "id"))), "html", null, true);
+        echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("yoxima_blog_edit", array("id" => $this->getAttribute((isset($context["article"]) ? $context["article"] : null), "id"))), "html", null, true);
         echo "\" class=\"btn btn-default\">
 <i class=\"icon-edit\"></i>
 Modifier l'article

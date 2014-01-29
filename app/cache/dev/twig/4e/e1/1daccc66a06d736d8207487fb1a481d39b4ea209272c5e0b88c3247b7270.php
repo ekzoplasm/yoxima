@@ -36,29 +36,29 @@ class __TwigTemplate_4ee11daccc66a06d736d8207487fb1a481d39b4ea209272c5e0b88c3247
     public function block_yoximablog_body($context, array $blocks = array())
     {
         // line 8
-        if ((!(null === $this->getAttribute((isset($context["article"]) ? $context["article"] : $this->getContext($context, "article")), "image")))) {
+        if ((!(null === $this->getAttribute((isset($context["article"]) ? $context["article"] : null), "image")))) {
             // line 9
             echo "<img src=\"";
-            echo twig_escape_filter($this->env, $this->getAttribute($this->getAttribute((isset($context["article"]) ? $context["article"] : $this->getContext($context, "article")), "image"), "url"), "html", null, true);
+            echo twig_escape_filter($this->env, $this->getAttribute($this->getAttribute((isset($context["article"]) ? $context["article"] : null), "image"), "url"), "html", null, true);
             echo "\" alt=\"";
-            echo twig_escape_filter($this->env, $this->getAttribute($this->getAttribute((isset($context["article"]) ? $context["article"] : $this->getContext($context, "article")), "image"), "alt"), "html", null, true);
+            echo twig_escape_filter($this->env, $this->getAttribute($this->getAttribute((isset($context["article"]) ? $context["article"] : null), "image"), "alt"), "html", null, true);
             echo "\" />
 ";
         }
         // line 11
         echo "<h2>Article ";
-        echo twig_escape_filter($this->env, $this->getAttribute((isset($context["article"]) ? $context["article"] : $this->getContext($context, "article")), "id"), "html", null, true);
+        echo twig_escape_filter($this->env, $this->getAttribute((isset($context["article"]) ? $context["article"] : null), "id"), "html", null, true);
         echo "</h2>
 <i>Par ";
         // line 12
-        echo twig_escape_filter($this->env, $this->getAttribute((isset($context["article"]) ? $context["article"] : $this->getContext($context, "article")), "author"), "html", null, true);
+        echo twig_escape_filter($this->env, $this->getAttribute((isset($context["article"]) ? $context["article"] : null), "author"), "html", null, true);
         echo ", le ";
-        echo twig_escape_filter($this->env, twig_date_format_filter($this->env, $this->getAttribute((isset($context["article"]) ? $context["article"] : $this->getContext($context, "article")), "date"), "d/m/Y"), "html", null, true);
+        echo twig_escape_filter($this->env, twig_date_format_filter($this->env, $this->getAttribute((isset($context["article"]) ? $context["article"] : null), "date"), "d/m/Y"), "html", null, true);
         echo "</i>
 <div class=\"well\">
     ";
         // line 14
-        echo twig_escape_filter($this->env, $this->getAttribute((isset($context["article"]) ? $context["article"] : $this->getContext($context, "article")), "content"), "html", null, true);
+        echo twig_escape_filter($this->env, $this->getAttribute((isset($context["article"]) ? $context["article"] : null), "content"), "html", null, true);
         echo "
 </div>
 <p>
@@ -71,14 +71,14 @@ class __TwigTemplate_4ee11daccc66a06d736d8207487fb1a481d39b4ea209272c5e0b88c3247
 </a>
 <a href=\"";
         // line 21
-        echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("yoxima_blog_edit", array("id" => $this->getAttribute((isset($context["article"]) ? $context["article"] : $this->getContext($context, "article")), "id"))), "html", null, true);
+        echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("yoxima_blog_edit", array("id" => $this->getAttribute((isset($context["article"]) ? $context["article"] : null), "id"))), "html", null, true);
         echo "\" class=\"btn btn-default\">
 <span class=\"glyphicon glyphicon-edit\"></span>
 Modifier l'article
 </a>
         <a href=\"";
         // line 25
-        echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("yoxima_blog_del", array("id" => $this->getAttribute((isset($context["article"]) ? $context["article"] : $this->getContext($context, "article")), "id"))), "html", null, true);
+        echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("yoxima_blog_del", array("id" => $this->getAttribute((isset($context["article"]) ? $context["article"] : null), "id"))), "html", null, true);
         echo "\" class=\"btn btn-default\">
         <span class=\"glyphicon glyphicon-trash\"></span>
         Supprimer l'article
@@ -88,20 +88,20 @@ Modifier l'article
 ";
         // line 31
         $context['_parent'] = (array) $context;
-        $context['_seq'] = twig_ensure_traversable((isset($context["comments"]) ? $context["comments"] : $this->getContext($context, "comments")));
+        $context['_seq'] = twig_ensure_traversable((isset($context["comments"]) ? $context["comments"] : null));
         foreach ($context['_seq'] as $context["_key"] => $context["comment"]) {
             // line 32
             echo "<p>
     <i>Par ";
             // line 33
-            echo twig_escape_filter($this->env, $this->getAttribute((isset($context["comment"]) ? $context["comment"] : $this->getContext($context, "comment")), "author"), "html", null, true);
+            echo twig_escape_filter($this->env, $this->getAttribute((isset($context["comment"]) ? $context["comment"] : null), "author"), "html", null, true);
             echo " le ";
-            echo twig_escape_filter($this->env, twig_date_format_filter($this->env, $this->getAttribute((isset($context["comment"]) ? $context["comment"] : $this->getContext($context, "comment")), "date"), "d/m/Y"), "html", null, true);
+            echo twig_escape_filter($this->env, twig_date_format_filter($this->env, $this->getAttribute((isset($context["comment"]) ? $context["comment"] : null), "date"), "d/m/Y"), "html", null, true);
             echo "</i>
     <div class=\"well\">
         ";
             // line 35
-            echo twig_escape_filter($this->env, $this->getAttribute((isset($context["comment"]) ? $context["comment"] : $this->getContext($context, "comment")), "content"), "html", null, true);
+            echo twig_escape_filter($this->env, $this->getAttribute((isset($context["comment"]) ? $context["comment"] : null), "content"), "html", null, true);
             echo "
     </div>
 </p>
@@ -111,7 +111,7 @@ Modifier l'article
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['comment'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
         // line 39
-        if ((twig_length_filter($this->env, (isset($context["comments"]) ? $context["comments"] : $this->getContext($context, "comments"))) < 1)) {
+        if ((twig_length_filter($this->env, (isset($context["comments"]) ? $context["comments"] : null)) < 1)) {
             // line 40
             echo "<div class=\"well\">0 commentaires pour le moment</div>
 ";

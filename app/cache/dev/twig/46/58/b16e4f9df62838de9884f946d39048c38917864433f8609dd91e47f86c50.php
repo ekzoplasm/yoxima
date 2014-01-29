@@ -39,7 +39,7 @@ class __TwigTemplate_4658b16e4f9df62838de9884f946d39048c38917864433f8609dd91e47f
         <h1>Well done!</h1>
         ";
         // line 7
-        if ((isset($context["is_writable"]) ? $context["is_writable"] : $this->getContext($context, "is_writable"))) {
+        if ((isset($context["is_writable"]) ? $context["is_writable"] : null)) {
             // line 8
             echo "        <h2>Your distribution is configured!</h2>
         ";
@@ -53,16 +53,16 @@ class __TwigTemplate_4658b16e4f9df62838de9884f946d39048c38917864433f8609dd91e47f
             <span>
                 ";
         // line 14
-        if ((isset($context["is_writable"]) ? $context["is_writable"] : $this->getContext($context, "is_writable"))) {
+        if ((isset($context["is_writable"]) ? $context["is_writable"] : null)) {
             // line 15
             echo "                    Your parameters.yml file has been overwritten with these parameters (in <em>";
-            echo twig_escape_filter($this->env, (isset($context["yml_path"]) ? $context["yml_path"] : $this->getContext($context, "yml_path")), "html", null, true);
+            echo twig_escape_filter($this->env, (isset($context["yml_path"]) ? $context["yml_path"] : null), "html", null, true);
             echo "</em>):
                 ";
         } else {
             // line 17
             echo "                    Your parameters.yml file is not writeable! Here are the parameters you can copy and paste in <em>";
-            echo twig_escape_filter($this->env, (isset($context["yml_path"]) ? $context["yml_path"] : $this->getContext($context, "yml_path")), "html", null, true);
+            echo twig_escape_filter($this->env, (isset($context["yml_path"]) ? $context["yml_path"] : null), "html", null, true);
             echo "</em>:
                 ";
         }
@@ -72,17 +72,17 @@ class __TwigTemplate_4658b16e4f9df62838de9884f946d39048c38917864433f8609dd91e47f
 
         <textarea class=\"symfony-configuration\">";
         // line 22
-        echo twig_escape_filter($this->env, (isset($context["parameters"]) ? $context["parameters"] : $this->getContext($context, "parameters")), "html", null, true);
+        echo twig_escape_filter($this->env, (isset($context["parameters"]) ? $context["parameters"] : null), "html", null, true);
         echo "</textarea>
 
         ";
         // line 24
-        if ((isset($context["welcome_url"]) ? $context["welcome_url"] : $this->getContext($context, "welcome_url"))) {
+        if ((isset($context["welcome_url"]) ? $context["welcome_url"] : null)) {
             // line 25
             echo "            <ul>
                 <li><a href=\"";
             // line 26
-            echo twig_escape_filter($this->env, (isset($context["welcome_url"]) ? $context["welcome_url"] : $this->getContext($context, "welcome_url")), "html", null, true);
+            echo twig_escape_filter($this->env, (isset($context["welcome_url"]) ? $context["welcome_url"] : null), "html", null, true);
             echo "\">Go to the Welcome page</a></li>
             </ul>
         ";

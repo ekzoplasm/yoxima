@@ -74,7 +74,7 @@ class __TwigTemplate_ea9abcc56754c237e171268b7cbb570056134ccc3dcc6d15a2a724194cb
     <footer>
     <p>";
         // line 39
-        echo twig_escape_filter($this->env, (isset($context["owner"]) ? $context["owner"] : $this->getContext($context, "owner")), "html", null, true);
+        echo twig_escape_filter($this->env, (isset($context["owner"]) ? $context["owner"] : null), "html", null, true);
         echo "</p>
     </footer>
   </div>

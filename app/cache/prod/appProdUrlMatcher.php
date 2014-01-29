@@ -27,14 +27,14 @@ class appProdUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirecta
 
         if (0 === strpos($pathinfo, '/blog')) {
             // yoxima_blog_homepage
-            if (preg_match('#^/blog/(?P<page>\\d*)$#s', $pathinfo, $matches)) {
-                return $this->mergeDefaults(array_replace($matches, array('_route' => 'yoxima_blog_homepage')), array (  '_controller' => 'yoxima\\BlogBundle\\Controller\\BlogController::indexAction',  '_format' => 'html',  'lg' => 'fr',));
+            if (preg_match('#^/blog(?:/(?P<page>\\d*))?$#s', $pathinfo, $matches)) {
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'yoxima_blog_homepage')), array (  '_controller' => 'yoxima\\BlogBundle\\Controller\\BlogController::indexAction',  'page' => 1,  '_format' => 'html',  'lg' => 'fr',));
             }
 
             if (0 === strpos($pathinfo, '/blog/a')) {
                 // yoxima_blog_view
                 if (0 === strpos($pathinfo, '/blog/article') && preg_match('#^/blog/article/(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
-                    return $this->mergeDefaults(array_replace($matches, array('_route' => 'yoxima_blog_view')), array (  '_controller' => 'yoxima\\BlogBundle\\Controller\\BlogController::viewAction',));
+                    return $this->mergeDefaults(array_replace($matches, array('_route' => 'yoxima_blog_view')), array (  '_controller' => 'yoxima\\BlogBundle\\Controller\\BlogController::viewAction',  '_format' => 'html',));
                 }
 
                 // yoxima_blog_add

@@ -28,18 +28,18 @@ class __TwigTemplate_bef50fbb93a008701680ed065cdbd5b2c6cb552a7d8c2e6e3f3787ee2c0
         echo "\" method=\"post\" enctype=\"multipart/form-data\">
         ";
         // line 8
-        if ((!twig_test_empty((isset($context["token"]) ? $context["token"] : $this->getContext($context, "token"))))) {
+        if ((!twig_test_empty((isset($context["token"]) ? $context["token"] : null)))) {
             // line 9
             echo "            <div style=\"margin-bottom: 10px\">
                 &#187;&#160;<a href=\"";
             // line 10
-            echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("_profiler_purge", array("token" => (isset($context["token"]) ? $context["token"] : $this->getContext($context, "token")))), "html", null, true);
+            echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("_profiler_purge", array("token" => (isset($context["token"]) ? $context["token"] : null))), "html", null, true);
             echo "\">Purge</a>
             </div>
             <div style=\"margin-bottom: 10px\">
                 &#187;&#160;<a href=\"";
             // line 13
-            echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("_profiler_export", array("token" => (isset($context["token"]) ? $context["token"] : $this->getContext($context, "token")))), "html", null, true);
+            echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("_profiler_export", array("token" => (isset($context["token"]) ? $context["token"] : null))), "html", null, true);
             echo "\">Export</a>
             </div>
         ";

@@ -39,9 +39,9 @@ class __TwigTemplate_2d11072c001b65dc909f2346c3f46dcfac83e8fbb7e8f6abbf5c58ef735
         <div class=\"block-exception\">
             <h1>This request redirects to <a href=\"";
         // line 8
-        echo twig_escape_filter($this->env, (isset($context["location"]) ? $context["location"] : $this->getContext($context, "location")), "html", null, true);
+        echo twig_escape_filter($this->env, (isset($context["location"]) ? $context["location"] : null), "html", null, true);
         echo "\">";
-        echo twig_escape_filter($this->env, (isset($context["location"]) ? $context["location"] : $this->getContext($context, "location")), "html", null, true);
+        echo twig_escape_filter($this->env, (isset($context["location"]) ? $context["location"] : null), "html", null, true);
         echo "</a>.</h1>
 
             <p>
